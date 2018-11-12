@@ -11,14 +11,19 @@ public class Controller implements ActionListener {
 		this.m = m;
 	}
 	
-	public Controller (View v) {
-		this.v = v;
-	}
-
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("increment")) {
+		if (e.getActionCommand().equals("total")) {
+			m.setTotal(Integer.parseInt(v.getText1()));
+			//v.setTotal(m.getTotal());
+		}
+		if (e.getActionCommand().equals("increment")){
 			int i = m.increment();
+			v.setCurrent(i);
+		}
+		if (e.getActionCommand().equals("decrement")) {
+			int i = m.decrement();
 			v.setCurrent(i);
 		}
 		

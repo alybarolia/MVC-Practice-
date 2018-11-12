@@ -15,16 +15,19 @@ public class View extends JFrame {
 	private JButton decrement;
 	private JLabel label;
 	private Controller cont;
+	private Model model;
 
 	public View() {
-		cont = new Controller (this);
+		model = new Model();
+		cont = new Controller (this, model);
+		
 		frame = new JFrame ("Sheep Counter");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		layout = new GridLayout (4,2);
 		
-		total = new JTextField ("3");
-		current = new JTextField ("2");
-		current.setEditable(false);
+		total = new JTextField ();
+		current = new JTextField ();
+		
 		label1 = new JLabel ("total");
 		label2 = new JLabel ("current");
 		increment = new JButton ("increment");
@@ -49,15 +52,32 @@ public class View extends JFrame {
 		
 
 		frame.setSize(300, 200);
-
+		current.setEnabled(false);
 		frame.setVisible(true);
 
 	}
+	
 
 	public void setCurrent(int i) {
 		current.setText("" + i);
 	}
 	
+	public String getText1() {
+		return total.getText();
+	}
+	
+	public String getText2() {
+		return current.getText();
+		
+	}
+	
+	public void setTotal(int i) {
+		total.setText("" + i);
+	}
+	
+	public void updateLabel() {
+		
+	}
 	
 	
 	public static void main (String [] args) {
