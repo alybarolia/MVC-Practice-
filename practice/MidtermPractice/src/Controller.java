@@ -14,17 +14,28 @@ public class Controller implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getActionCommand().equals("total")) {
 			m.setTotal(Integer.parseInt(v.getText1()));
-			//v.setTotal(m.getTotal());
 		}
-		if (e.getActionCommand().equals("increment")){
-			int i = m.increment();
-			v.setCurrent(i);
+		else if (e.getActionCommand().equals("increment")){
+			m.increment();
+			v.setCurrent( m.getCurrent());
+			
 		}
-		if (e.getActionCommand().equals("decrement")) {
-			int i = m.decrement();
-			v.setCurrent(i);
+		else if (e.getActionCommand().equals("decrement")) {
+			m.decrement();
+			v.setCurrent( m.getCurrent());
+		}
+		
+		if(m.getCurrent() < m.getTotal()) {
+			v.updateLabel(1);
+		} 
+		if (m.getCurrent() == m.getTotal()) {
+			v.updateLabel(2);
+		}
+		if (m.getCurrent() > m.getTotal()) {
+			v.updateLabel(3);
 		}
 		
 	}

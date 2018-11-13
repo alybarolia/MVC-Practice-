@@ -1,3 +1,5 @@
+
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.*;
@@ -75,7 +77,17 @@ public class View extends JFrame {
 		total.setText("" + i);
 	}
 	
-	public void updateLabel() {
+	public void updateLabel(int i) {
+		if (i == 1) {
+			label.setText("incomplete!");
+			label.setForeground(Color.RED);
+		}else if (i == 2) {
+			label.setText("complete!");
+			label.setForeground(Color.GREEN);
+		} else if (i == 3) {
+			label.setText("inconsistent");
+			label.setForeground(Color.YELLOW);
+		}
 		
 	}
 	

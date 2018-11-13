@@ -3,19 +3,19 @@ public class Model {
 	
 	//private View view;
 	private int totalSheep;
-	private int current;
+	private int current=0;
 	
 	
 	public Model() {
 		
 	}
 	
-	public int increment () {
-		return current++;
+	public void increment () {
+		 current++;
 	}
 	
-	public int decrement () {
-		return current--;	
+	public void decrement () {
+		 current--;	
 	}
 	
 	public int getTotal() {
